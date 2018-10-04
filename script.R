@@ -36,7 +36,8 @@ for (seshCode in sessionCodes) {
         # loanCol = sprintf("fin_app%d", seq(1:NUM_LOANS))
         loanCol = getLoanAppsInRound(roundData)
         roundCol = rep(roundId, length(loanCol))
-        roundFormattedFrame = data.frame('round' = roundCol, 'loan_id' = loanCol)
+        seshCodeCol = rep(seshCode, length(loanCol))
+        roundFormattedFrame = data.frame('round' = roundCol, 'session_code' = seshCodeCol, 'loan_id' = loanCol)
 
         for (playerId in playerIds) {
             playerColName = paste('p', playerId, '_dec', sep="")
